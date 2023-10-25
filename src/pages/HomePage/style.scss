@@ -1,0 +1,54 @@
+@import '../../partial';
+
+.trending{
+    .heading{
+        @include flex(row,space-between,center,0,nowrap);
+        padding: 1px 10px;
+        .changeBox{
+            @include flex(row,space-between,normal,0,nowrap);
+            width: 150px;
+            padding: 10px;
+            cursor: pointer;
+            position: relative;
+            .chooseBox{
+                width: 70px;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                transition: all 0.5s ease;
+            }
+        }
+    }
+    .carousel {
+        @include flex(row,flex-start,normal,10px,nowrap);
+        overflow: scroll;
+        padding: 10px;
+        
+        .popular {
+            @include flex(column,flex-start,normal,10px,nowrap);
+            cursor: pointer;
+            position: relative;
+            & img {
+                border-radius: 20px;
+            }
+    
+            .progressbar {
+                position: absolute;
+                top: 0;
+                left: 0;
+    
+            }
+        }
+    
+    }
+}
+
+.otherwise_carousel{
+    height: 440px;
+
+    @media screen and (max-width : '700px') {
+        &{
+            height: 308px;
+        }
+    }
+}

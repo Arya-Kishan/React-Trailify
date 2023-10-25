@@ -1,0 +1,162 @@
+@import '../partial';
+
+.detailPage {
+    position: relative;
+    padding: 50px 0;
+
+    .bgImg {
+        @include dimension(100vh,100vw,0,0,0,0);
+        @include pos(absolute,0,null,null,0,0,0);
+        @include flex(row,flex-end,flex-end,0,nowrap);
+        z-index: -1;
+        background-position:top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: .3;
+
+
+        & ::after {
+            content: '';
+            display: block;
+            width: 100vw;
+            height: 50vh;
+            background-image: var(--opacity);
+        }
+    }
+
+    .main_detail {
+        display: grid;
+        grid-template-columns: .3fr .7fr;
+        padding: 10px;
+        gap: 10px;
+
+        .detail_img {
+            display: grid;
+            place-items: center;
+            padding: 10px 0 50px 0;
+            height: 62vh;
+            position: relative;
+
+            & img {
+                box-shadow: 0 0 6px 4px white;
+                border-radius: 10px;
+                width: 70%;
+                height: 100%;
+            }
+
+            @media screen and (max-width : '700px') {
+                & {
+                    padding: 10px 0 50px 0;
+
+                    & img {
+                        width: 70vw;
+                        height: 60vh;
+                    }
+                }
+            }
+
+            @media screen and (min-width : '700px') and (max-width : '1200px') {
+                & {
+                    padding: 10px 0 50px 0;
+
+                    & img {
+                        width: 90%;
+                        height: 55vh;
+                    }
+                }
+            }
+        }
+
+        .detail {
+            @include flex(column,flex-start,normal,40px,nowrap);
+            padding: 10px 20px 30px 0;
+            
+            .title h1 {
+                padding: 0;
+                font-size: 40px;
+            }
+            
+            .round {
+                @include flex(row,flex-start,normal,10px,nowrap);
+                font-size: 20px;
+                
+                .main_icon {
+                    @include flex(row,flex-start,center,10px,nowrap);
+                    cursor: pointer;
+
+                    .icon {
+                        font-size: 60px;
+                    }
+                }
+            }
+
+            .genre {
+                display: flex;
+                gap: 10px;
+
+                & div {
+                    border: 2px solid yellow;
+                    color: yellow;
+                    padding: 3px 6px;
+                    border-radius: 5px;
+                    font-size: 18px;
+                }
+            }
+
+            .overview {
+                @include flex(column,space-between,normal,5px,nowrap);
+                font-size: 20px;
+            }
+            
+            .together {
+                @include flex(column,space-between,normal,10px,nowrap);
+                font-size: 20px;
+                & div{
+                    color: rgb(57, 57, 255);
+                }
+            }
+
+            @media screen and (max-width : '700px') {
+                & {
+                    justify-content: flex-start;
+                    gap: 25px;
+
+                    .round {
+                        font-size: 15px;
+
+                        .main_icon {
+
+                            .icon {
+                                font-size: 55px;
+                            }
+                        }
+                    }
+
+                    .genre {
+                        gap: 10px;
+
+                        & div {
+                            font-size: 15px;
+                        }
+                    }
+
+                    .overview {
+                        gap: 5px;
+                        font-size: 16px;
+                    }
+
+                    .together {
+                        @include flex(row,space-between,normal,10px,nowrap);
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width : '700px') {
+            & {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}

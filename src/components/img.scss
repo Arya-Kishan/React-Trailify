@@ -1,0 +1,29 @@
+.lazyImg {
+    position: relative;
+    width: fit-content;
+    
+    .heart {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        z-index: 1;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .img {
+        border-radius: 20px;
+        box-shadow: 0 0 4px 2px white;
+
+        & img {
+            box-shadow: 0 0 4px 2px white;
+            border-radius: 20px;
+        }
+
+        @media screen and (max-width : '700px') {
+            & {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}

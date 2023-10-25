@@ -1,0 +1,32 @@
+.swiper {
+  padding: 20px;
+  position: relative;
+
+  .slider_title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    text-align: center;
+    
+    & h1{
+      background: linear-gradient(to right, transparent, black);
+      box-shadow: 0 0 8px 4px white;
+    }
+
+  }
+
+  .swiperDiv {
+    width: 100vw;
+    aspect-ratio: 1.77;
+  }
+  
+  .swiper img {
+    padding: 20px;
+    width: 100vw;
+    opacity: .5;
+
+  }
+
+}

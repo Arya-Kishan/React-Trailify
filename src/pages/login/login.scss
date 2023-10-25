@@ -1,0 +1,12 @@
+@import '../../partial';
+.login{
+    @include flex(column,center,center,0,nowrap);
+    height: 100vh;
+
+    & button{
+        color: black;
+        padding: 5px 15px;
+        box-shadow: 0 0 6px 2px white;
+        
+    }
+}

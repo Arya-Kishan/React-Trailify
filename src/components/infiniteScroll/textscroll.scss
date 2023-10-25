@@ -1,0 +1,47 @@
+.main_box {
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+
+    .boxes {
+        padding: 5px;
+        display: inline-block;    
+        animation: slide 20s linear infinite;
+
+        & img{
+            width: 30px;
+            margin: 0 20px;
+        }
+
+        .box {
+            margin: 5px;
+            width: fit-content;
+            border: 2px solid white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:hover{
+                background-color: white;
+                color: black;
+                box-shadow: 0 0 5px 2px red;
+            }
+        }
+
+        .inner_box{
+            display: flex;
+            width: 100vw;
+            justify-content: space-evenly;
+        }
+    }
+}
+
+@keyframes slide {
+    0%{
+        transform: translateX(150%);
+    }
+
+    100% {
+        transform: translateX(-150%);
+    }
+}

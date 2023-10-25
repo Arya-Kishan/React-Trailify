@@ -1,0 +1,9 @@
+@import '../../partial';
+.searchPage{
+    @include flex(row,center,center,20px,wrap);
+    padding: 20px;
+}
+.content{
+    @include flex(row,center,center,20px,wrap);
+    padding: 20px;
+}

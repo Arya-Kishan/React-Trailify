@@ -1,0 +1,42 @@
+@import './../../partial';
+
+.floatIcon {
+    display: none;
+    width: 100vw;
+    background-color: black;
+    z-index: 3;
+
+    @media screen and (max-width : '700px') {
+        & {
+            @include flex(row, space-evenly, center, 0,nowrap);
+            @include pos(fixed,null, null, 0, null, null, null);
+        }
+    }
+
+}
+
+.searchBar1 {
+    @include pos(fixed,10%, null, null, 50%, -50%, -50%);
+
+    & input {
+        border-radius: 10px;
+        font-size: 15px;
+        padding: 5px 25px;
+        color: black;
+    }
+}
+
+.searchBar2 {
+    @include flex(row, space-evenly, center, 10px,wrap);
+    background-color: black;
+    padding: 15px;
+    overflow: scroll;
+
+    & div>div {
+        @include border(null,null,1px,white,10px);
+        padding: 6px 10px;
+        cursor: pointer;
+        width: 115px;
+        text-align: center;
+    }
+}

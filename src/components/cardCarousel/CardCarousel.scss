@@ -1,0 +1,90 @@
+@import '../../partial';
+
+.carousel1 {
+    @include flex(row, flex-start, normal, 20px, nowrap);
+    overflow-x: scroll;
+    padding: 5px 20px;
+    height: 380px;
+
+    .card {
+        @include flex(column, flex-start, normal, 10px, nowrap);
+        cursor: pointer;
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        transition: all ease .2s;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+
+
+        .card_img {
+            height: 330px;
+
+            @media screen and (max-width : '700px') {
+                & {
+                    height: 200px;
+                }
+            }
+        }
+
+
+        .progress {
+            width: 60px;
+            @include pos(absolute, normal, normal, -8%, 8%, 0, 0);
+
+            @media screen and (max-width : '700px') {
+                & {
+                    width: 50px;
+                    left: 8%;
+                }
+            }
+        }
+
+        .imdb {
+            @include pos(absolute, 4%, normal, normal, 3%, 0, 0);
+            padding: 2px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+    }
+
+    @media screen and (max-width : '700px') {
+        & {
+            height: 250px;
+        }
+    }
+}
+
+.carousel2 {
+    @include flex(row, center, center, 20px, wrap);
+    overflow-x: scroll;
+    padding: 0 30px;
+
+    .card {
+        @include flex(column, flex-start, normal, 10px, nowrap);
+        cursor: pointer;
+        position: relative;
+        width: fit-content;
+
+        .imdb {
+            @include pos(absolute, 4%, normal, normal, 3%, 0, 0);
+            padding: 2px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+            opacity: .7;
+        }
+    }
+}
+
+
+.carousel_other {
+    height: 380px;
+
+    @media screen and (max-width : '700px') {
+        & {
+            height: 250px;
+        }
+    }
+}

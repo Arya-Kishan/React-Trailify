@@ -1,0 +1,28 @@
+.switch{
+    height: 30px;
+    width: 150px;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr;
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 2px;
+    background-color: white;
+    & div{
+        color: black;
+        text-transform: uppercase;
+        display: grid;
+        place-items: center;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+
+    &:hover{
+        box-shadow: 0 0 6px 2px green;
+    }
+}
+
+.bg{
+    background: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
+    border-radius: 10px;
+}

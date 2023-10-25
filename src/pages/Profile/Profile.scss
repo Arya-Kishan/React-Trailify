@@ -1,0 +1,123 @@
+@import '../../partial';
+
+.profile {
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: .3fr .7fr;
+    margin: 20px 10px;
+
+    .img img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+
+    .text {
+        @include flex(column, center, normal, 10px, nowrap);
+
+        & div {
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            & span {
+                cursor: pointer;
+            }
+
+        }
+    }
+}
+
+.profile_category {
+    @include flex(row, space-around, normal, 0px, nowrap);
+    padding: 10px 0;
+    margin: 10px 0;
+
+    & div {
+        border: 1px solid white;
+        width: 100%;
+        text-align: center;
+        padding: 6px 20px;
+        cursor: pointer;
+    }
+}
+
+.profile_carousel {
+
+    & img {
+        height: 300px;
+        width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 0 5px 2px white;
+
+        @media screen and (max-width : '700px') {
+            & {
+                height: 150px;
+                width: 100px;
+                border-radius: 10px;
+                box-shadow: 0 0 5px 2px white;
+            }
+        }
+    }
+
+    .img_div {
+        position: relative;
+        width: fit-content;
+
+        .delete_icon {
+            @include pos(absolute, 3%,3%, null, null, 0, 0);
+            font-size: 18px;
+            cursor: pointer;
+        }
+    }
+
+    .carousel123 {
+        @include flex(row, center, center, 0, wrap);
+        width: 100%;
+        padding: 20px 0 50px 0;
+    }
+}
+
+
+.otherwise_profile {
+    @include flex(row, center, center, 0, nowrap);
+    width: 100%;
+    min-height: 60vh;
+    opacity: .1;
+}
+
+
+.profile_list {
+    @include flex(column, flex-start, center, 20px, nowrap);
+    width: 100vw;
+
+    .add_icon {
+        width: fit-content;
+        @include pos(fixed, null, 5%, 7%, null, 0, 0);
+        font-size: 40px;
+    }
+
+    .list div {
+        width: 90vw;
+        @include flex(column,space-between,center,0,nowrap);
+    }
+}
+
+.profile_input {
+    @include flex(column,center,center,10px,nowrap);
+    @include pos(fixed,50%,null,null,50%,-50%,-50%);
+    color: black;
+    padding: 6px 12px;
+    font-size: 15px;
+
+    & input {
+        padding: 6px 14px;
+        font-size: 15px;
+        color: black;
+    }
+
+    & button {
+        color: black;
+        padding: 3px 8px;
+    }
+}

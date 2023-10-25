@@ -1,0 +1,40 @@
+@import '../../partial';
+
+.navbar {
+    @include pos(fixed,0,null,null,0,0,0);
+    @include flex(row,space-between,center,0,nowrap);
+    padding: 5px 20px;
+    z-index: 2;
+    width: 100%;
+    transition: all ease 1s;
+    
+    .logo img{
+        width: 80px;
+    }
+    .gif{
+        display: none;
+    }
+    
+    .navIcons {
+        @include flex(row,flex-start,center,10px,nowrap);
+    }
+
+    @media screen and (max-width : '700px') {
+
+        &{
+            display: none;
+        }
+    }
+}
+
+.searchBar {
+
+    & input {
+        @include pos(fixed,10%,null,null,50%,-50%,-50%);
+        color: black;
+        width: 50%;
+        font-size: 15px;
+        padding: 5px;
+        border-radius: 15px;
+    }
+}

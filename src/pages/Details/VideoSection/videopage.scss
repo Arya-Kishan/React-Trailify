@@ -1,0 +1,53 @@
+.main_video_official {
+    padding: 20px 0 10px 0;
+
+    .videopage {
+        display: flex;
+        gap: 25px;
+        overflow: scroll;
+        padding: 15px;
+        height: fit-content;
+        position: relative;
+
+        .videoBox {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            cursor: pointer;
+
+            .videoThumbnail {
+                border-radius: 10px;
+                width: fit-content;
+                position: relative;
+
+                & img {
+                    border-radius: 10px;
+                    width: 300px;
+                    box-shadow: 0 0 6px 2px white;
+
+                    @media screen and (max-width : '700px') {
+                        & {
+                            width: 200px;
+                        }
+                    }
+                }
+
+                .play {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    .icon {
+                        font-size: 40px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+h1 {
+    padding: 10px;
+}

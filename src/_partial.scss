@@ -1,0 +1,31 @@
+@mixin flex($dir, $jC, $aI, $gap, $w) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $jC;
+    align-items: $aI;
+    gap: $gap;
+    flex-wrap: $w;
+}
+
+@mixin pos($pos, $t, $r, $b, $l, $tf, $bf) {
+    position: $pos;
+    top: $t;
+    bottom: $b;
+    left: $l;
+    right: $r;
+    transform: translate($tf, $bf);
+}
+
+@mixin dimension($h, $w, $tm, $rm, $tp, $rp) {
+    height: $h;
+    width: $w;
+    margin: $tm, $rm;
+    padding: $tp, $rp;
+}
+
+@mixin border($tc, $bc, $l, $col, $br) {
+    color: $tc;
+    background-color: $bc;
+    border: $l solid $col;
+    border-radius: $br;
+}

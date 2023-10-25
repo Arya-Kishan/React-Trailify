@@ -54,7 +54,7 @@ function App() {
         userInfo && (
           <>
             <BrowserRouter>
-              <Suspense fallback={<h1 className=''>Trailify...</h1>} >
+              <Suspense fallback={<h1 className='app'>Trailify...</h1>} >
                 <Navbar />
                 <Routes>
                   <Route path='/' element={<Homepage />} />

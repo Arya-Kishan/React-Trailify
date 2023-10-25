@@ -16,7 +16,7 @@ const Img = ({ src, classname, dataObj }) => {
 
     const heart1 = <motion.div initial={{ scale: 0 }}
         whileInView={{ scale: 1.1 }}
-        transition={{ duration: .2 }}><img style={{ width: '20px' }} src={heart2} alt="" srcset="" /></motion.div>
+        transition={{ duration: .2 }}><img style={{ width: '20px' }} src={heart2} alt="" srcSet="" /></motion.div>
 
     const handlePaint = (e, dataObj) => {
         e.stopPropagation()

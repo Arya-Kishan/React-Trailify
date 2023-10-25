@@ -5,10 +5,11 @@ import { getCategory, getImagesUrl, getPopular } from '../src/store/HomeSlice'
 import { lazy} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { getAuth } from 'firebase/auth'
+import { fireContext } from './Firebase/FireContext';
 import { app } from './Firebase/Firebase'
+import { getUser } from './store/UserSlice';
 import Login from './pages/login/Login'
 import { Suspense } from 'react';
-import { fireContext } from './Firebase/FireContext';
 import { useContext } from 'react';
 import { useQueryApi } from './hooks/useQueryApi';
 
@@ -28,6 +29,10 @@ function App() {
 
   const dispatch = useDispatch();
   const { userInfo, setUserInfo } = useContext(fireContext)
+
+  if (localStorage.getItem("user")) {
+    dispatch(getUser(JSON.parse(localStorage.getItem("user")).uid))
+  }
 
   let { data: img } = useQueryApi('/configuration')
   dispatch(getImagesUrl(`${img?.images?.secure_base_url}original`))
@@ -49,7 +54,7 @@ function App() {
         userInfo && (
           <>
             <BrowserRouter>
-              <Suspense fallback={<h1>Loading...APP</h1>} >
+              <Suspense fallback={<h1 className=''>Trailify...</h1>} >
                 <Navbar />
                 <Routes>
                   <Route path='/' element={<Homepage />} />
@@ -57,6 +62,7 @@ function App() {
                   <Route path='/search/:query' element={<SearchPage />} />
                   <Route path='/explore/:id/:name' element={<Explore />} />
                   <Route path='/profile' element={<Profile />} />
+                  <Route path='/login' element={<Login />} />
                 </Routes>
                 <Button />
               </Suspense>

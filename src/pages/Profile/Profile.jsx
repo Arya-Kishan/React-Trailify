@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import profile from '../../Images/profile.jpeg'
 import { app } from '../../Firebase/Firebase'
 import { getFirestore, collection, getDocs } from 'firebase/firestore'
-// import dayjs from 'dayjs';
 import { getAuth, signOut } from 'firebase/auth';
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
@@ -36,9 +35,9 @@ export default function Profile() {
   }
 
   const handleSignOut = () => {
-    signOut(auth)
-    setUserInfo(null)
     localStorage.clear()
+    signOut(auth)
+    location.reload()
   }
 
   const getData = () => {
@@ -126,8 +125,6 @@ export default function Profile() {
                         <DeleteIcon data-identity={'delete_card'} onClick={(e) => { deleteCard(e, element.firebase_id) }} className='delete_icon' />
                       </div>
 
-                      {/* <div className='profile_imdb'>{element.vote_average}</div><div className="profile_name">{element.original_title ? element.original_title : 'NOT AVAILABLE'}</div><div className="profile_date">{dayjs(element.release_date).format('MMM D YYYY')}</div> */}
-
                     </div>
                   )
                 })
@@ -153,7 +150,7 @@ export default function Profile() {
               <div className='list'>
                 {
                   data2?.reverse().map((element, i) => (
-                    <div>
+                    <div key={i}>
                       <span>{i + 1}. {element.name} </span>
                       <span><DeleteIcon data-identity={'delete_list'} onClick={(e) => { deleteCard(e, element.firebase_id) }} /></span>
                     </div>

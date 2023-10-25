@@ -29,8 +29,11 @@ export default function Login() {
 
         onAuthStateChanged(auth, (userData) => {
             if (userData) {
+                console.log(userData)
+                console.log(userData.uid)
                 dispatch(getUser(userData.uid))
                 localStorage.setItem("user", JSON.stringify(userData))
+                location.reload();
             } else {
                 setUserInfo(null)
             }

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 
 
-
+let imgSrc;
 export default function HomeBanner() {
 
     const { url } = useSelector(state => state.home);
@@ -18,6 +18,10 @@ export default function HomeBanner() {
             navigate(`/search/${query}`)
         }
     }
+
+    useEffect(() => {
+        imgSrc = (url + data[Math.floor(Math.random() * 19)]?.backdrop_path)
+    }, [])
 
 
     return (
@@ -45,7 +49,7 @@ export default function HomeBanner() {
 
                             </div>
 
-                            <img src={(url + data[Math.floor(Math.random() * 19)]?.backdrop_path)} alt="" srcSet="" />
+                            <img src={imgSrc} alt="" srcSet="" />
 
                             <div className="opacity-layer"></div>
 

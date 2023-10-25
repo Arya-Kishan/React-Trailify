@@ -72,7 +72,7 @@
     }
 
     .carousel123 {
-        @include flex(row, center, center, 0, wrap);
+        @include flex(row, center, center, 20px, wrap);
         width: 100%;
         padding: 20px 0 50px 0;
     }
@@ -90,16 +90,16 @@
 .profile_list {
     @include flex(column, flex-start, center, 20px, nowrap);
     width: 100vw;
-
+    
     .add_icon {
         width: fit-content;
         @include pos(fixed, null, 5%, 7%, null, 0, 0);
         font-size: 40px;
     }
-
+    
     .list div {
+        @include flex(row,space-between,center,0,nowrap);
         width: 90vw;
-        @include flex(column,space-between,center,0,nowrap);
     }
 }
 

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { IconButton, Modal } from '@mui/material';
-import { Home } from '@mui/icons-material';
+import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
@@ -34,9 +34,9 @@ export default function Button() {
           setOpen1(true)
         }}><SearchIcon /></IconButton>
 
-        <IconButton onClick={() => { navigate(`/`) }}><Home /></IconButton>
+        <IconButton onClick={() => { navigate(`/`) }}><HomeIcon /></IconButton>
 
-        <IconButton><Category position={'bottom'}/></IconButton>
+        <IconButton><Category position={'bottom'} /></IconButton>
 
         <IconButton onClick={() => { navigate(`/profile`) }}><PersonIcon /></IconButton>
 

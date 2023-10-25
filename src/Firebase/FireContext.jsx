@@ -1,18 +1,23 @@
 import React, { createContext, useState } from 'react'
 import { app } from './Firebase'
 import { getFirestore, collection, addDoc, getDocs, deleteDoc, where, query, doc } from 'firebase/firestore'
-import { getAuth } from 'firebase/auth'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUser } from '../store/UserSlice'
 
 const db = getFirestore(app)
-const auth = getAuth(app)
 export const fireContext = createContext()
 
 export default function FireContext({ children }) {
 
+  const dispatch = useDispatch();
+
   const { user } = useSelector(state => state.user)
-  const [arr,setArr] = useState(null)
-  const [userInfo,setUserInfo] = useState(JSON.parse(localStorage.getItem("user")))
+  const [arr, setArr] = useState(null)
+  const [userInfo, setUserInfo] = useState(JSON.parse(localStorage.getItem("user")))
+
+  if (localStorage.getItem("user")) {
+    dispatch(getUser((JSON.parse(localStorage.getItem("user"))).uid))
+  }
 
   const add = async (dataObj) => {
     await addDoc(collection(db, user), dataObj)
@@ -42,7 +47,7 @@ export default function FireContext({ children }) {
 
   return (
     <div>
-      <fireContext.Provider value={{ add, get, delete_Doc, get_query_data, arr, setArr, userInfo,setUserInfo }}>
+      <fireContext.Provider value={{ add, get, delete_Doc, get_query_data, arr, setArr, userInfo, setUserInfo }}>
         {children}
       </fireContext.Provider>
     </div>

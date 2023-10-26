@@ -9,11 +9,19 @@ import { useQueryApi } from '../../../hooks/useQueryApi';
 export default function Popular() {
 
   const [endpoint, setEndpoint] = useState('movie')
+  const [background,setBackground] = useState({
+    bg1: 'bg',
+    bg2: ''
+  })
   const { data } = useQueryApi(`/${endpoint}/popular`)
   const { className } = useParams()
 
   const changeEndpoint = (category) => {
     setEndpoint(category)
+    setBackground({
+      bg1: '',
+      bg2: 'bg'
+    })
   }
 
   return (
@@ -25,7 +33,7 @@ export default function Popular() {
             <div className='heading'>
               <div><h1>POPULAR</h1></div>
               <div>
-                <SwitchBoard changeEndpoint={changeEndpoint} name1={'Movie'} name2={'TV'} />
+                <SwitchBoard changeEndpoint={changeEndpoint} name1={'Movie'} name2={'TV'} background={background} />
               </div>
             </div>
 
@@ -41,7 +49,7 @@ export default function Popular() {
               <div className='heading'>
                 <div><h1>POPULAR</h1></div>
                 <div>
-                  <SwitchBoard changeEndpoint={changeEndpoint} name1={'day'} name2={'week'} />
+                  <SwitchBoard changeEndpoint={changeEndpoint} name1={'Movie'} name2={'TV'} />
                 </div>
               </div>
 

@@ -44,7 +44,7 @@ export default function CardCarousel({ data, endpoint, classname }) {
                         }
                     </>
                 ) : (
-                    <div className='carousel_other'>arya</div>
+                    <div className='carousel_other'></div>
                 )
             }
         </div>

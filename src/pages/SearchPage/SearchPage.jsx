@@ -18,7 +18,7 @@ const SearchPage = () => {
   const [pageNum, setPageNum] = useState(1);
   const [loading, setLoading] = useState(false);
   const { query } = useParams();
-  const {url} = useSelector(state => state.home)
+  const { url } = useSelector(state => state.home)
   const navigate = useNavigate()
 
   const fetchInitialData = () => {
@@ -72,10 +72,10 @@ const SearchPage = () => {
                     <div key={i}>
                       <div className='card' onClick={() => { handleNavigate(e.id, e.media_type) }}>
 
-                        <Img src={posterUrl} />
+                        <div className='searchImg'><Img src={posterUrl} /></div>
 
-                        <div className='progressbar' style={{ width: 50, height: 50 }}>
-                          <CircularProgressbar value={e.vote_average} maxValue={10} text={e.vote_average} />
+                        <div className='searchIMDB'>
+                          {Math.floor(e.vote_average).toString()}
                         </div>
 
                         <div className="name">

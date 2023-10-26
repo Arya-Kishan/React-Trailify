@@ -12,7 +12,7 @@ const Img = ({ src, classname, dataObj }) => {
 
     const { add } = useContext(fireContext)
     const [replace, setReplace] = useState(false)
-    const {arr} = useContext(fireContext)
+    const { arr } = useContext(fireContext)
 
     const heart1 = <motion.div initial={{ scale: 0 }}
         whileInView={{ scale: 1.1 }}
@@ -25,10 +25,14 @@ const Img = ({ src, classname, dataObj }) => {
 
     return (
         <div className='lazyImg'>
-            <div className='heart' onClick={(e) => { handlePaint(e, dataObj) }}>{replace ? heart1 : <FavoriteIcon onClick={() => { 
-                setReplace(true)
-                arr[0]('liked')
-                }} />}</div>
+
+            <div className='heart' onClick={(e) => { handlePaint(e, dataObj) }}>
+                {replace ? heart1 : <FavoriteIcon onClick={() => {
+                    setReplace(true)
+                    arr[0]('liked')
+                }} />}
+            </div>
+
             <LazyLoadImage
                 className={`${classname ? classname : 'img'}`}
                 alt=''
@@ -37,7 +41,9 @@ const Img = ({ src, classname, dataObj }) => {
                 threshold={200}
                 width={window.screen.width <= '700' ? 130 : 220}
             />
-        <Snack/>
+
+            <Snack />
+            
         </div>
 
     )

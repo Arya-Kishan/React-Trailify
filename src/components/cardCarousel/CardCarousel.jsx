@@ -16,37 +16,39 @@ export default function CardCarousel({ data, endpoint, classname }) {
         navigate(`/details/${type}/${id}`)
     }
     return (
-        <div className={classname ? classname : 'carousel1'}>
-            {
-                data ? (
-                    <>
-                        {
+        <div className='mainCarousel'>
+            <div className={classname ? classname : 'carousel1'}>
+                {
+                    data ? (
+                        <>
+                            {
 
-                            data?.results?.map((e) => {
-                                const posterUrl = e.poster_path ? url + e.poster_path : poster;
-                                return (
-                                    <div key={e.id} className='card' onClick={() => { handleNavigate(e.id, endpoint || e.media_type) }}>
+                                data?.results?.map((e) => {
+                                    const posterUrl = e.poster_path ? url + e.poster_path : poster;
+                                    return (
+                                        <div key={e.id} className='card' onClick={() => { handleNavigate(e.id, endpoint || e.media_type) }}>
 
-                                        <div className='card_img'><Img src={posterUrl} dataObj={e} /></div>
+                                            <div className='card_img'><Img src={posterUrl} dataObj={e} /></div>
 
-                                        <div className='progress'>
-                                            <CircularProgressbar value={e.vote_average.toFixed(1)} maxValue={10} text={e.vote_average.toFixed(1)} background={true} backgroundPadding={6} styles={buildStyles({
-                                                pathColor:
-                                                    e.vote_average < 5 ? "red" : e.vote_average < 7 ? "orange" : "green",
-                                                textColor: 'black',
-                                                backgroundColor: 'white'
-                                            })} />
+                                            <div className='progress'>
+                                                <CircularProgressbar value={e.vote_average.toFixed(1)} maxValue={10} text={e.vote_average.toFixed(1)} background={true} backgroundPadding={6} styles={buildStyles({
+                                                    pathColor:
+                                                        e.vote_average < 5 ? "red" : e.vote_average < 7 ? "orange" : "green",
+                                                    textColor: 'black',
+                                                    backgroundColor: 'white'
+                                                })} />
+                                            </div>
+
                                         </div>
-
-                                    </div>
-                                )
-                            })
-                        }
-                    </>
-                ) : (
-                    <div className='carousel_other'></div>
-                )
-            }
+                                    )
+                                })
+                            }
+                        </>
+                    ) : (
+                        <div className='carousel_other'></div>
+                    )
+                }
+            </div>
         </div>
     )
 }

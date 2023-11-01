@@ -14,12 +14,7 @@
 
     .img {
         border-radius: 20px;
-        box-shadow: 0 0 4px 2px white;
-
-        & img {
-            box-shadow: 0 0 4px 2px white;
-            border-radius: 20px;
-        }
+        box-shadow: 0 0 4px 1px white;
 
         @media screen and (max-width : '700px') {
             & {

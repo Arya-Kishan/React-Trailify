@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import CategoryCarousel from './categoryCarousel.jsx/CategoryCarousel';
 import { useQueryApi } from '../../../hooks/useQueryApi';
+import './EachCategory.scss'
 
 export default function EachCategory({ id }) {
 

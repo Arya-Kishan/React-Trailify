@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { fetchDataFromApi } from '../../utilis/Api'
 import dayjs from 'dayjs'
-import { CircularProgressbar } from 'react-circular-progressbar'
 import Img from '../../components/Img'
 import { useSelector } from 'react-redux'
 import poster from '../../Images/no-poster.png'
@@ -54,6 +53,7 @@ const SearchPage = () => {
 
   return (
     <div className='searchResultsPage'>
+      <h1 className='searchHeading'>{query}</h1>
       {loading && <div>Loading...</div>}
       {!loading && (
         <>

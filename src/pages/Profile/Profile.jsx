@@ -40,12 +40,20 @@ export default function Profile() {
     location.reload()
   }
 
+  let a = [];
+  let b = [];
   const getData = () => {
     setData2(null)
     setData3(null)
     get(userInfo.uid)
       .then(val => {
-        setData1(val)
+        val.forEach(element => {
+          if (!a.includes(element.title)) {
+            a.push(element.title)
+            b.push(element)
+          }
+        });
+        setData1(b)
       })
   }
 

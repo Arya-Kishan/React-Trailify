@@ -3,8 +3,7 @@ import axios from "axios";
 
 const a = 5;
 const fetchData = async ({ queryKey }) => {
-    console.log("sd")
-    let { data } = await axios.get(`https://api.themoviedb.org/3${queryKey[1]}?api_key=7fad363f58889077cd601fe2d0ed4fb7` + `${queryKey[2] != undefined ? `&with_genres=${queryKey[2]}` : ``}`)
+    let { data } = await axios.get(`https://api.themoviedb.org/3${queryKey[1]}?api_key=7fad363f58889077cd601fe2d0ed4fb7` + `${queryKey[2] == undefined ? '' : `&with_genres=${queryKey[2]}`}`)
     return data;
 }
 

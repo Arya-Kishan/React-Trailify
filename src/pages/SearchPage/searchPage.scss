@@ -1,5 +1,12 @@
 @import '../../partial';
 
+.searchHeading {
+    text-align: center;
+    text-transform: uppercase;
+    color: yellow;
+    margin-top: 15px;
+}
+
 .searchPage {
     @include flex(row, center, center, 20px, wrap);
     padding: 20px;
@@ -14,9 +21,9 @@
     height: 330px;
     width: 230px;
     position: relative;
-    @include flex(column,flex-start,normal,8px,nowrap);
+    @include flex(column, flex-start, normal, 8px, nowrap);
 
-    .searchImg{
+    .searchImg {
         height: 195px;
         width: 130px;
     }
@@ -25,8 +32,8 @@
         width: 40px;
         @include pos(absolute, 0, 90, null, 2%, 0, 0);
         text-align: center;
-        @include border(white,rgb(0, 0, 0),2px,white,6px);
-        
+        @include border(white, rgb(0, 0, 0), 2px, white, 6px);
+
         @media screen and (max-width : '700px') {
             & {
                 width: 40px;

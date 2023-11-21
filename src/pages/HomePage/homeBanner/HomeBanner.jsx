@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 let imgSrc;
+const num = Math.floor(Math.random() * 19)
 export default function HomeBanner() {
 
     const { url } = useSelector(state => state.home);
@@ -18,10 +19,6 @@ export default function HomeBanner() {
             navigate(`/search/${query}`)
         }
     }
-
-    useEffect(() => {
-        imgSrc = (url + data[Math.floor(Math.random() * 19)]?.backdrop_path)
-    }, [])
 
 
     return (
@@ -49,7 +46,7 @@ export default function HomeBanner() {
 
                             </div>
 
-                            <img src={imgSrc} alt="" srcSet="" />
+                            <img src={url + data[num]?.backdrop_path} alt="" srcSet="" />
 
                             <div className="opacity-layer"></div>
 

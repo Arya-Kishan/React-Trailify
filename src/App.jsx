@@ -48,6 +48,8 @@ function App() {
     return (<Login />)
   }
 
+  console.log("APP JSX")
+
   return (
     <>
       {

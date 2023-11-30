@@ -16,8 +16,6 @@ export default function Login() {
     const { userInfo, setUserInfo } = useContext(fireContext)
     const dispatch = useDispatch();
 
-    console.log("LOGIN JSX")
-
 
     const handleSignIn = () => {
         signInWithPopup(auth, googleProvider)

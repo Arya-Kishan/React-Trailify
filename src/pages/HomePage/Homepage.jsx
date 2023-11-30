@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { lazy, Suspense } from 'react'
 import './style.scss'
-import { lazy } from 'react'
-import { Suspense } from 'react'
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import HomeBanner from './homeBanner/HomeBanner';
 import Popular from './popular/Popular';
@@ -26,9 +24,8 @@ export default function Homepage() {
       <Popular />
       <TopRated />
       <TextScroll />
-      <Suspense fallback={<h1 className='app'>Loading...Homepage</h1>} >
-        <LazyLoadComponent
-          threshold={200}>
+      <Suspense fallback={<h1 className='app'></h1>} >
+        <LazyLoadComponent threshold={200}>
           <Categories from={0} to={3} />
           <Slider />
           <Categories from={3} to={10} />

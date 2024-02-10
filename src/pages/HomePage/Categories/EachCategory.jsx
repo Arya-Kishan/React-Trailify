@@ -7,7 +7,7 @@ import './EachCategory.scss'
 
 export default function EachCategory({ id }) {
 
-  let { data: res } = useQueryApi('/movie/popular', id)
+  let { data: res } = useQueryApi('/discover/movie', id)
 
   return (
     <div className='each_category'>

@@ -32,7 +32,7 @@ export default function Category({ position }) {
     return (
         <div>
 
-            <div onClick={() => {
+            <div style={{ cursor: "pointer" }} onClick={() => {
                 setOpen2(true)
                 fetchList()
             }}><CategoryIcon /></div>

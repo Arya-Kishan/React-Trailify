@@ -19,7 +19,7 @@ export default function Explore() {
 
     const handleChange = async (event) => {
 
-        let res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7fad363f58889077cd601fe2d0ed4fb7&with_genres=${id}`)
+        let res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=7fad363f58889077cd601fe2d0ed4fb7&with_genres=${id}`)
         res = await res.json()
         res = res.results;
 
@@ -34,7 +34,7 @@ export default function Explore() {
     };
 
     const getData = async () => {
-        let res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7fad363f58889077cd601fe2d0ed4fb7&with_genres=${id}`)
+        let res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=7fad363f58889077cd601fe2d0ed4fb7&with_genres=${id}`)
         res = await res.json()
         res = res.results;
         setData(res)

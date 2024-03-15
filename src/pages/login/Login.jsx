@@ -11,7 +11,7 @@ import { getUser } from '../../store/UserSlice'
 const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider()
 
-export default function Login() {
+export default function Login({setInfo}) {
 
     const { userInfo, setUserInfo } = useContext(fireContext)
     const dispatch = useDispatch();
@@ -45,6 +45,7 @@ export default function Login() {
             <img src={loginImg} alt="" srcSet="" />
             <h1>SIGN IN</h1>
             <button onClick={handleSignIn}>LOGIN WITH GMAIL</button>
+            <button onClick={()=>setInfo("ARYA")} id='guestBtn'>Guest</button>
         </div>
     )
 }

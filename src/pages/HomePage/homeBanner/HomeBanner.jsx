@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import './homebanner.scss'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
+import "regenerator-runtime/runtime.js";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import mic from '../../../assets/mic.svg'
 
 
 let imgSrc;
@@ -19,6 +22,58 @@ export default function HomeBanner() {
             navigate(`/search/${query}`)
         }
     }
+
+    const handleMic = () => {
+        listenContinuously()
+    }
+
+
+
+    const {
+        transcript,
+        interimTranscript,
+        finalTranscript,
+        resetTranscript,
+        listening,
+    } = useSpeechRecognition();
+
+
+
+
+    if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+        return null;
+    }
+
+    if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+        console.log('Your browser does not support speech recognition software! Try Chrome desktop, maybe?');
+    }
+
+    const listenContinuously = () => {
+        SpeechRecognition.startListening({
+            continuous: true,
+            language: 'en-GB',
+        });
+        stopListen()
+    };
+
+    const stopListen = () => {
+        setTimeout(() => {
+            SpeechRecognition.stopListening()
+            resetTranscript()
+        }, 5000);
+    };
+
+
+
+    useEffect(() => {
+        if (finalTranscript !== '') {
+            navigate(`/search/${finalTranscript}`)
+            SpeechRecognition.stopListening()
+        }
+    }, [interimTranscript, finalTranscript]);
+
+
+
 
 
     return (
@@ -41,6 +96,7 @@ export default function HomeBanner() {
                                         onChange={(e) => { setQuery(e.target.value) }} type="text"
                                         onKeyUp={(e) => { handleSearch(e) }}
                                     />
+                                    <img onClick={handleMic} src={mic} alt="mic" srcSet="" />
                                     <span>Search</span>
                                 </div>
 
@@ -75,7 +131,14 @@ export default function HomeBanner() {
 
                     </div>
                 )}
+
+                {listening && <div className='speechBox'>
+                    <p>Listening : {listening ? "ON" : "OFF"}</p>
+                    <p>{transcript}</p>
+                </div>}
+
             </div>
+
         </div>
     )
 }

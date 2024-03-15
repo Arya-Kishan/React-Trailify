@@ -1,12 +1,13 @@
 @import '../../../partial';
+
 .homebanner {
     position: relative;
     width: 100vw;
     overflow: hidden;
 
     .frontText {
-        @include pos(absolute,50%,null,null,50%,-50%,-50%);
-        @include flex(column,flex-start,center,15px,nowrap);
+        @include pos(absolute, 50%, null, null, 50%, -50%, -50%);
+        @include flex(column, flex-start, center, 15px, nowrap);
         z-index: 1;
         text-align: center;
 
@@ -24,12 +25,22 @@
             align-items: center;
             background: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
             border-radius: 10px;
+            position: relative;
 
             & input {
                 border-radius: 10px 0 0 10px;
                 border: 1px solid white;
                 padding: 12px;
                 color: blue;
+            }
+
+            & img {
+                position: absolute;
+                top: 5px;
+                left: 157px;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
             }
 
             & span {
@@ -73,10 +84,30 @@
             }
         }
     }
+
+    .speechBox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        background: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+
+        & button,
+        p {
+            color: black;
+        }
+    }
 }
 
 
-.otherwise_homeBanner{
+.otherwise_homeBanner {
     height: 100vh;
     width: 100vw;
 

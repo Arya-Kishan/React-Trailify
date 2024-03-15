@@ -6,7 +6,17 @@
     & button{
         color: black;
         padding: 5px 15px;
-        box-shadow: 0 0 6px 2px white;
-        
+        box-shadow: 0 0 3px 2px white;
+        margin-top: 20px;
+        cursor: pointer;
     }
+}
+
+#guestBtn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #04152D;
+    color: white;
+    cursor: pointer;
 }

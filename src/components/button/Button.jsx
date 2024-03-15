@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { IconButton, Modal } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
@@ -6,9 +6,11 @@ import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
 import Category from '../Category';
 import './buttons.scss'
+import { fireContext } from '../../Firebase/FireContext'
 
 export default function Button() {
 
+  const { arr } = useContext(fireContext)
   const navigate = useNavigate()
   const [open1, setOpen1] = useState(false)
   const [query, setQuery] = useState('')
@@ -22,6 +24,17 @@ export default function Button() {
 
   const handleClose = () => {
     setOpen1(false)
+  }
+
+  const handleProfile = () => {
+
+    if (localStorage.getItem("user")) {
+      navigate(`/profile`)
+    } else {
+      console.log("sadssdasd");
+      arr[0]('Login !  Reload')
+    }
+
   }
 
   return (
@@ -38,7 +51,7 @@ export default function Button() {
 
         <IconButton><Category position={'bottom'} /></IconButton>
 
-        <IconButton onClick={() => { navigate(`/profile`) }}><PersonIcon /></IconButton>
+        <IconButton onClick={handleProfile}><PersonIcon /></IconButton>
 
       </div>
 

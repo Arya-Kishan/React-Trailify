@@ -45,7 +45,7 @@ function App() {
 
 
   if (!userInfo) {
-    return (<Login />)
+    return (<Login setInfo={setUserInfo}/>)
   }
 
   console.log("APP JSX")

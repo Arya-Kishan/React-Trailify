@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom';
 import { IconButton, Modal } from '@mui/material';
@@ -6,9 +6,11 @@ import PersonIcon from '@mui/icons-material/Person';
 import Category from '../Category'
 import logo from '../../Images/logo1.png'
 import './navbar.scss'
+import { fireContext } from '../../Firebase/FireContext'
 
 export default function Navbar() {
 
+    const { arr } = useContext(fireContext)
     const [open, setOpen] = useState(false)
     const [query, setQuery] = useState('')
     const navigate = useNavigate()
@@ -37,6 +39,17 @@ export default function Navbar() {
         }
     }
 
+    const handleProfile = () => {
+
+        if (localStorage.getItem("user")) {
+            navigate(`/profile`)
+        } else {
+            console.log("sadssdasd");
+            arr[0]('Login !  Reload')
+        }
+
+    }
+
     return (
         <>
             <div className='navbar'>
@@ -46,7 +59,7 @@ export default function Navbar() {
 
                     <IconButton onClick={() => { handleShow() }}><SearchIcon /></IconButton>
 
-                    <IconButton onClick={() => { navigate(`/profile`) }}><PersonIcon /></IconButton>
+                    <IconButton onClick={handleProfile}><PersonIcon /></IconButton>
 
                     <Category position={'top'} />
 

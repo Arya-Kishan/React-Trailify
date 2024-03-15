@@ -20,7 +20,13 @@ const Img = ({ src, classname, dataObj }) => {
 
     const handlePaint = (e, dataObj) => {
         e.stopPropagation()
-        add({ ...dataObj, type: 'movie' })
+        if (localStorage.getItem("user")) {
+            add({ ...dataObj, type: 'movie' })
+        } else {
+            console.log("cant added");
+            arr[0]('Login Pls')
+
+        }
     }
 
     return (
@@ -43,7 +49,7 @@ const Img = ({ src, classname, dataObj }) => {
             />
 
             <Snack />
-            
+
         </div>
 
     )
